@@ -19,6 +19,7 @@ var debugging = "off";
 var Tail = require('tail').Tail;
 var chokidar = require('chokidar');
 var fs = require('fs');
+var parser = require('parse-ini');
 
 // Load Socket.io
 var io = require('socket.io')(8080);
@@ -172,5 +173,16 @@ configWatcher
 .on('change', function(path) {
   log('File', path, 'has been changed, alerting dashboards and restarting services');
   nsp.emit("CONFIG", "UPDATED");
-  // This is where I want to call a service restart...
-})
+
+  // The config changed - bounce the services.
+  var configPiStar = parser.parse('/usr/local/etc/pi-star/pi-star.ini');
+  
+});
+
+// Service Monitor
+function serviceMonitor() {
+  // Do the thing....
+}
+
+// Check the services every 30 secs
+setInterval(serviceMonitor, 30000);
