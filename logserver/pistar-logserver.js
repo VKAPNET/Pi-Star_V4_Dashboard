@@ -181,7 +181,17 @@ configWatcher
 
 // Service Monitor
 function serviceMonitor() {
-  // Do the thing....
+  // Read the config on each pass
+  var configPiStar = parser.parse('/usr/local/etc/pi-star/pi-star.ini');
+
+  // MMDVMHost Check / Restart
+  if (configPiStar.software.modemControlSoftware == "mmdvmhost") {
+    svcChkMMDVMHostCmd = spawnSync( 'ps', [ '--no-headers', '-C', 'MMDVMHost' ] );
+    svcChkMMDVMHost = svcChkMMDVMHostCmd.stdout.toString();
+    if (!(svcChkMMDVMHost)) {
+      // If the service should be running - start it
+    }
+  }
 }
 
 // Check the services every 30 secs
