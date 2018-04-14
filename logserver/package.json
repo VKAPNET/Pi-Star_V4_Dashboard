@@ -1,0 +1,18 @@
+{
+  "name": "pistar-logserver",
+  "version": "4.0.0",
+  "description": "Pi-Star Log Server",
+  "main": "pistar-logserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andy Taylor (MW0MWZ)",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^2.0.3",
+    "parse-ini": "^1.0.6",
+    "redis": "^2.8.0",
+    "socket.io": "^2.1.0",
+    "tail": "^1.2.3"
+  }
+}
