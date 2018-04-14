@@ -20,6 +20,7 @@ var Tail = require('tail').Tail;
 var chokidar = require('chokidar');
 var fs = require('fs');
 var parser = require('parse-ini');
+const { spawnSync} = require('child_process');
 
 // Load Socket.io
 var io = require('socket.io')(8080);
