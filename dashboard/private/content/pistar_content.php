@@ -30,6 +30,12 @@ echo "  <div class=\"content\">\n";
       <tbody></tbody>
     </table>
 
+    <b>debug status</b>
+    <table class="table" id="Status">
+      <thead><tr><th>Log Line</th></tr></thead>
+      <tbody></tbody>
+    </table>
+
 
     <script>
       // Get the timezone from the Client
@@ -140,6 +146,11 @@ echo "  <div class=\"content\">\n";
       })
       socket.on("Links", function(data) {
 	$('#Links tbody tr').slice(0).remove();
+        $('#Links tbody').prepend("<tr><td align=\"left\">" + data + "</td></tr>")
+        // $(document.getElementById("Links")).append("<tr><td>" + data + "</td></tr>")
+      })
+      socket.on("Status", function(data) {
+	$('#Links tbody tr').slice(10).remove();
         $('#Links tbody').prepend("<tr><td align=\"left\">" + data + "</td></tr>")
         // $(document.getElementById("Links")).append("<tr><td>" + data + "</td></tr>")
       })
