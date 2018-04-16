@@ -98,11 +98,6 @@ nsp.on('connection', function (socket) {
   redisClient.get('DSTAR_LINK', function(err, reply) {
     nsp.emit("Links", reply);
   });
-
-  // Send the service status information
-  redisClient.get('svc:*', function(err, reply) {
-    nsp.emit("Status", reply);
-  });
 });
 
 // Add event listeners.
@@ -182,3 +177,29 @@ configWatcher
 
   
 });
+
+function sendServiceStatus() {
+  // Get the data from redis, and send it to the client
+  redisClient.keys('svc:*', function (err, keys) {
+    if (err) return log(err);
+    for(var i = 0, len = keys.length; i < len; i++) {
+      // Add Keys to Sortable List
+      redisClient.sadd('TEMP_SVC', keys[i]);
+    }
+  });
+
+  // Sort the redis temp key store and push to client
+  redisClient.sort('TEMP_SVC', 'alpha', function (err, keys) {
+    if (err) return log(err);
+    if ( keys.length > 15 ) { minKey = keys.length - 15; } else { minKey = 0; }
+    for(var i = minKey, len = keys.length; i < len; i++) {
+      redisClient.get(keys[i], function(err, reply) {
+        nsp.emit("Status", reply);
+      });
+    }
+  });
+
+  // Clear up the used keyspace
+  redisClient.del('TEMP_SVC');
+}
+setTimeout(sendServiceStatus, 5*1000);
