@@ -98,6 +98,11 @@ nsp.on('connection', function (socket) {
   redisClient.get('DSTAR_LINK', function(err, reply) {
     nsp.emit("Links", reply);
   });
+
+  // Send the service status information
+  redisClient.get('svc:', function(err, reply) {
+    nsp.emit("Status", reply);
+  });
 });
 
 // Add event listeners.
