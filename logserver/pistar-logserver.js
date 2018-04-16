@@ -181,13 +181,15 @@ configWatcher
 function sendServiceStatus() {
   redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
   redisClient.get('svc:dstarrepeater', function(err, reply) { nsp.emit("SERVICE_STATUS", "dstarrepeater:"+reply); });
-  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
-  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
-  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
-  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
-  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
-  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
-  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
-  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
+  redisClient.get('svc:ircddbgateway', function(err, reply) { nsp.emit("SERVICE_STATUS", "ircddbgateway:"+reply); });
+  redisClient.get('svc:timeserver', function(err, reply) { nsp.emit("SERVICE_STATUS", "timeserver:"+reply); });
+  redisClient.get('svc:dmrgateway', function(err, reply) { nsp.emit("SERVICE_STATUS", "dmrgateway:"+reply); });
+  redisClient.get('svc:ysfgateway', function(err, reply) { nsp.emit("SERVICE_STATUS", "ysfgateway:"+reply); });
+  redisClient.get('svc:ysfparrot', function(err, reply) { nsp.emit("SERVICE_STATUS", "ysfparrot:"+reply); });
+  redisClient.get('svc:ysf2dmr', function(err, reply) { nsp.emit("SERVICE_STATUS", "ysf2dmr:"+reply); });
+  redisClient.get('svc:p25gateway', function(err, reply) { nsp.emit("SERVICE_STATUS", "p25gateway:"+reply); });
+  redisClient.get('svc:p25parrot', function(err, reply) { nsp.emit("SERVICE_STATUS", "p25parrot:"+reply); });
+  redisClient.get('svc:nxdngateway', function(err, reply) { nsp.emit("SERVICE_STATUS", "nxdngateway:"+reply); });
+  redisClient.get('svc:nxdnparrot', function(err, reply) { nsp.emit("SERVICE_STATUS", "nxdnparrot:"+reply); });
 }
 setInterval(sendServiceStatus, 5*1000);
