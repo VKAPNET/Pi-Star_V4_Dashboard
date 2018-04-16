@@ -29,6 +29,7 @@ echo "  <div class=\"content\">\n";
       <thead><tr><th>Log Line</th></tr></thead>
       <tbody></tbody>
     </table>
+    <br />
 
     <b>debug status</b>
     <table class="table" id="Status">
@@ -150,8 +151,8 @@ echo "  <div class=\"content\">\n";
         // $(document.getElementById("Links")).append("<tr><td>" + data + "</td></tr>")
       })
       socket.on("Status", function(data) {
-	$('#Links tbody tr').slice(10).remove();
-        $('#Links tbody').prepend("<tr><td align=\"left\">" + data + "</td></tr>")
+	$('#Status tbody tr').slice(10).remove();
+        $('#Status tbody').prepend("<tr><td align=\"left\">" + data + "</td></tr>")
         // $(document.getElementById("Links")).append("<tr><td>" + data + "</td></tr>")
       })
     </script>
