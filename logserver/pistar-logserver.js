@@ -180,17 +180,7 @@ configWatcher
 
 function sendServiceStatus() {
   statusOutput = '{ ';
-  redisClient.get('svc:dmrgateway', function(err, reply) { statusOutput += '"dmrgateway":"' + reply + '"'; });
-  redisClient.get('svc:ircddbgateway', function(err, reply) { statusOutput += '"ircddbgateway":"' + reply + '"'; });
-  redisClient.get('svc:mmdvmhost', function(err, reply) { statusOutput += '"mmdvmhost":"' + reply + '"'; });
-  redisClient.get('svc:ysf2dmr', function(err, reply) { statusOutput += '"ysf2dmr":"' + reply + '"'; });
-  redisClient.get('svc:nxdngateway', function(err, reply) { statusOutput += '"nxdngateway":"' + reply + '"'; });
-  redisClient.get('svc:timeserver', function(err, reply) { statusOutput += '"timeserver":"' + reply + '"'; });
-  redisClient.get('svc:ysfparrot', function(err, reply) { statusOutput += '"ysfparrot":"' + reply + '"'; });
-  redisClient.get('svc:p25parrot', function(err, reply) { statusOutput += '"p25parrot":"' + reply + '"'; });
-  redisClient.get('svc:ysfgateway', function(err, reply) { statusOutput += '"ysfgateway":"' + reply + '"'; });
-  redisClient.get('svc:nxdnparrot', function(err, reply) { statusOutput += '"nxdnparrot":"' + reply + '"'; });
-  redisClient.get('svc:p25gateway', function(err, reply) { statusOutput += '"p25gateway":"' + reply + '"'; });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { statusOutput += " "+reply+" " });
   statusOutput += ' }';
   nsp.emit("SERVICE_STATUS", statusOutput);
 }
