@@ -179,27 +179,19 @@ configWatcher
 });
 
 function sendServiceStatus() {
-  // Get the data from redis, and send it to the client
-  redisClient.keys('svc:*', function (err, keys) {
-    if (err) return log(err);
-    for(var i = 0, len = keys.length; i < len; i++) {
-      // Add Keys to Sortable List
-      redisClient.sadd('TEMP_SVC', keys[i]);
-    }
-  });
-
-  // Sort the redis temp key store and push to client
-  redisClient.sort('TEMP_SVC', 'alpha', function (err, keys) {
-    if (err) return log(err);
-    if ( keys.length > 15 ) { minKey = keys.length - 15; } else { minKey = 0; }
-    for(var i = minKey, len = keys.length; i < len; i++) {
-      redisClient.get(keys[i], function(err, reply) {
-        nsp.emit("Status", reply);
-      });
-    }
-  });
-
-  // Clear up the used keyspace
-  redisClient.del('TEMP_SVC');
+  statusOutput = '{ ';
+  redisClient.get('svc:dmrgateway', function(err, reply) { statusOutput += '"dmrgateway":"' + reply + '"'; });
+  redisClient.get('svc:ircddbgateway', function(err, reply) { statusOutput += '"ircddbgateway":"' + reply + '"'; });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { statusOutput += '"mmdvmhost":"' + reply + '"'; });
+  redisClient.get('svc:ysf2dmr', function(err, reply) { statusOutput += '"ysf2dmr":"' + reply + '"'; });
+  redisClient.get('svc:nxdngateway', function(err, reply) { statusOutput += '"nxdngateway":"' + reply + '"'; });
+  redisClient.get('svc:timeserver', function(err, reply) { statusOutput += '"timeserver":"' + reply + '"'; });
+  redisClient.get('svc:ysfparrot', function(err, reply) { statusOutput += '"ysfparrot":"' + reply + '"'; });
+  redisClient.get('svc:p25parrot', function(err, reply) { statusOutput += '"p25parrot":"' + reply + '"'; });
+  redisClient.get('svc:ysfgateway', function(err, reply) { statusOutput += '"ysfgateway":"' + reply + '"'; });
+  redisClient.get('svc:nxdnparrot', function(err, reply) { statusOutput += '"nxdnparrot":"' + reply + '"'; });
+  redisClient.get('svc:p25gateway', function(err, reply) { statusOutput += '"p25gateway":"' + reply + '"'; });
+  statusOutput = ' }';
+  nsp.emit("SERVICE_STATUS", statusOutput);
 }
 setTimeout(sendServiceStatus, 5*1000);
