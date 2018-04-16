@@ -96,8 +96,8 @@
     <script>
       // Modes Enabled
       socket.on("SERVICE_STATUS", function(data) {
-        if (data.includes("mmdvmhost:on") && $config_radio['modes']['modeDStarEnable'])	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
-        if (data.includes("mmdvmhost:on") && $config_radio['modes']['modeDmrEnable'])	{ $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
+        if (data.includes("mmdvmhost:on") && <?php echo $config_radio['modes']['modeDStarEnable']; ?>)	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
+        if (data.includes("mmdvmhost:on") && <?php echo $config_radio['modes']['modeDmrEnable']; ?>)	{ $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
       });
 
 
