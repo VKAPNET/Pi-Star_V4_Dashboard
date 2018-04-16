@@ -100,7 +100,7 @@ nsp.on('connection', function (socket) {
   });
 
   // Send the service status information
-  redisClient.get('svc:', function(err, reply) {
+  redisClient.get('svc:*', function(err, reply) {
     nsp.emit("Status", reply);
   });
 });
