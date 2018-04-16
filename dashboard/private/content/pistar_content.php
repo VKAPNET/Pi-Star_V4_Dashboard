@@ -150,7 +150,7 @@ echo "  <div class=\"content\">\n";
         $('#Links tbody').prepend("<tr><td align=\"left\">" + data + "</td></tr>")
         // $(document.getElementById("Links")).append("<tr><td>" + data + "</td></tr>")
       })
-      socket.on("Status", function(data) {
+      socket.on("SERVICE_STATUS", function(data) {
 	$('#Status tbody tr').slice(10).remove();
         $('#Status tbody').prepend("<tr><td align=\"left\">" + data + "</td></tr>")
         // $(document.getElementById("Links")).append("<tr><td>" + data + "</td></tr>")
