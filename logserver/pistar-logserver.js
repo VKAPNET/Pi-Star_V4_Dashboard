@@ -179,9 +179,6 @@ configWatcher
 });
 
 function sendServiceStatus() {
-  statusOutput = '{ ';
-  redisClient.get('svc:mmdvmhost', function(err, reply) { statusOutput += " test " });
-  statusOutput += ' }';
-  nsp.emit("SERVICE_STATUS", statusOutput);
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
 }
 setInterval(sendServiceStatus, 5*1000);
