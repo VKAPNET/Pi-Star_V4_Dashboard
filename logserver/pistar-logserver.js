@@ -194,4 +194,4 @@ function sendServiceStatus() {
   statusOutput = ' }';
   nsp.emit("SERVICE_STATUS", statusOutput);
 }
-setTimeout(sendServiceStatus, 5*1000);
+setInterval(sendServiceStatus, 5*1000);
