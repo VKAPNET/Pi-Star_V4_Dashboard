@@ -180,7 +180,7 @@ configWatcher
 
 function sendServiceStatus() {
   statusOutput = '{ ';
-  redisClient.get('svc:mmdvmhost', function(err, reply) { statusOutput += " "+reply+" " });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { statusOutput += " test " });
   statusOutput += ' }';
   nsp.emit("SERVICE_STATUS", statusOutput);
 }
