@@ -94,12 +94,10 @@
 <?php } ?>
 
     <script>
-      socket.on("SERVICE_STATUS", function(data) { if (data.search("mmdvmhost:on") > 0) { $('#modesEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#0b0", "color":"#030"}); } });
-      socket.on("MODE_DMR",	function(data) { if (data.search("running") > 0) { $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#0b0", "color":"#030"}); } });
-      socket.on("MODE_YSF",	function(data) { if (data.search("running") > 0) { $('#modesEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#0b0", "color":"#030"}); } });
-      socket.on("MODE_P25",	function(data) { if (data.search("running") > 0) { $('#modesEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#0b0", "color":"#030"}); } });
-      socket.on("MODE_YSF2DMR",	function(data) { if (data.search("running") > 0) { $('#modesEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#0b0", "color":"#030"}); } });
-      socket.on("MODE_NXDN",	function(data) { if (data.search("running") > 0) { $('#modesEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#0b0", "color":"#030"}); } });
+      socket.on("SERVICE_STATUS", function(data) {
+        if (data.includes("mmdvmhost:on")) { $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#030"}); }
+      });
+
 
       // Modem Status
       socket.on("MODEM", function(data) {
