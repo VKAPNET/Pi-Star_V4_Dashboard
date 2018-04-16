@@ -191,7 +191,7 @@ function sendServiceStatus() {
   redisClient.get('svc:ysfgateway', function(err, reply) { statusOutput += '"ysfgateway":"' + reply + '"'; });
   redisClient.get('svc:nxdnparrot', function(err, reply) { statusOutput += '"nxdnparrot":"' + reply + '"'; });
   redisClient.get('svc:p25gateway', function(err, reply) { statusOutput += '"p25gateway":"' + reply + '"'; });
-  statusOutput = ' }';
+  statusOutput += ' }';
   nsp.emit("SERVICE_STATUS", statusOutput);
 }
 setInterval(sendServiceStatus, 5*1000);
