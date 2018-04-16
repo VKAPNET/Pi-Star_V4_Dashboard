@@ -179,8 +179,15 @@ configWatcher
 });
 
 function sendServiceStatus() {
-  redisClient.get('svc:mmdvmhost', function(err, reply) {
-        nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply);
-  });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
+  redisClient.get('svc:dstarrepeater', function(err, reply) { nsp.emit("SERVICE_STATUS", "dstarrepeater:"+reply); });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
+  redisClient.get('svc:mmdvmhost', function(err, reply) { nsp.emit("SERVICE_STATUS", "mmdvmhost:"+reply); });
 }
 setInterval(sendServiceStatus, 5*1000);
