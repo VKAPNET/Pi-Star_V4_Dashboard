@@ -192,4 +192,4 @@ function sendServiceStatus() {
   redisClient.get('svc:nxdngateway', function(err, reply) { nsp.emit("SERVICE_STATUS", "nxdngateway:"+reply); });
   redisClient.get('svc:nxdnparrot', function(err, reply) { nsp.emit("SERVICE_STATUS", "nxdnparrot:"+reply); });
 }
-setInterval(sendServiceStatus, 5*1000);
+setInterval(sendServiceStatus, 30*1000);
