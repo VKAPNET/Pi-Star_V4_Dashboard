@@ -121,17 +121,17 @@
 	if (data.includes("ysf2dmr:starting"))		{ $('#networksEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
 	if (data.includes("nxdngateway:starting"))	{ $('#networksEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#ff9", "color":"#000"}); }
         // Modes Enabled (On)
-	if (data.includes("dstarrepeater:on"))		{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); }
-        if (data.includes("mmdvmhost:on"))		{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#f33", "color":"#000"});
-        						  $('#modesEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); $('#modesEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#f33", "color":"#000"});
-							  $('#modesEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); $('#modesEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#f33", "color":"#000"}); }
+	if (data.includes("dstarrepeater:on"))		{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
+        if (data.includes("mmdvmhost:on"))		{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#0b0", "color":"#000"});
+        						  $('#modesEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); $('#modesEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#0b0", "color":"#000"});
+							  $('#modesEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); $('#modesEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
 	// Network Status (On)
-	if (data.includes("ircddbgateway:on"))		{ $('#networksEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); }
-        if (data.includes("mmdvmhost:on"))		{ $('#networksEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#f33", "color":"#000"}); }
-        if (data.includes("ysfgateway:on"))		{ $('#networksEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); }
-	if (data.includes("p25gateway:on"))		{ $('#networksEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#f33", "color":"#000"}); }
-	if (data.includes("ysf2dmr:on"))		{ $('#networksEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); }
-	if (data.includes("nxdngateway:on"))		{ $('#networksEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#f33", "color":"#000"}); }
+	if (data.includes("ircddbgateway:on"))		{ $('#networksEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
+        if (data.includes("mmdvmhost:on"))		{ $('#networksEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
+        if (data.includes("ysfgateway:on"))		{ $('#networksEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
+	if (data.includes("p25gateway:on"))		{ $('#networksEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
+	if (data.includes("ysf2dmr:on"))		{ $('#networksEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
+	if (data.includes("nxdngateway:on"))		{ $('#networksEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
       });
 
 
