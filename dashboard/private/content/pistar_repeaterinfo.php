@@ -84,8 +84,8 @@
     <table>
     <thead><tr><th colspan="2"><?php echo $lang['nxdn_radio'];?></th></tr></thead>
     <tbody>
-    <tr><th width="55px">NXDN ID</th><td style="background: #ffffff;"><?php echo $config_radio['identity']['nxdnId'];?></td></tr>
-    <tr><th width="55px">RAN</th><td style="background: #ffffff;"><?php echo $config_radio['nxdn']['nxdnRAN'];?></td></tr>
+    <tr><th width="55px">NXDN ID</th><td style="background: #ffffff;"><?php echo $config_mmdvmhost['NXDN']['Id'];?></td></tr>
+    <tr><th width="55px">RAN</th><td style="background: #ffffff;"><?php echo $config_mmdvmhost['NXDN']['RAN'];?></td></tr>
     <tr><th colspan="2"><?php echo $lang['nxdn_net'];?></th></tr>
     <tr><td colspan="2" style="background: #ffffff;">Waiting...</td></tr>
     </tbody>
