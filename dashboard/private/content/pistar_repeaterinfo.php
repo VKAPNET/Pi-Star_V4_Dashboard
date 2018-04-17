@@ -96,7 +96,39 @@
     <script>
       // Modes Status
       socket.on("SERVICE_STATUS", function(data) {
-        // Modes Enabled
+        // Modes Enabled (Disabled)
+        if (data.includes("mmdvmhost:disabled") && <?php echo $config_radio['modes']['modeDStarEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css(); }
+	if (data.includes("dstarrepeater:disabled") && <?php if ($config_radio['software']['modemControlSoftware'] == 'dstarrepeater') { echo "1"; } else { echo "0"; } ?>)	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css(); }
+        if (data.includes("mmdvmhost:disabled") && <?php echo $config_radio['modes']['modeDmrEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(0) td:eq(1)').css(); }
+        if (data.includes("mmdvmhost:disabled") && <?php echo $config_radio['modes']['modeYSFEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(1) td:eq(0)').css(); }
+	if (data.includes("mmdvmhost:disabled") && <?php echo $config_radio['modes']['modeP25Enable']; ?>)		{ $('#modesEnabled tbody tr:eq(1) td:eq(1)').css(); }
+	if (data.includes("mmdvmhost:disabled") && <?php echo $config_radio['modes']['modeYSF2DMREnable']; ?>)	{ $('#modesEnabled tbody tr:eq(2) td:eq(0)').css(); }
+	if (data.includes("mmdvmhost:disabled") && <?php echo $config_radio['modes']['modeNXDNEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(2) td:eq(1)').css(); }
+	// Network Status (Disabled)
+	if (data.includes("ircddbgateway:disabled") && <?php echo $config_radio['modes']['modeDStarEnable']; ?>)	{ $('#networksEnabled tbody tr:eq(0) td:eq(0)').css(); }
+	if (data.includes("ircddbgateway:disabled") && <?php if ($config_radio['software']['modemControlSoftware'] == 'dstarrepeater') { echo "1"; } else { echo "0"; } ?>)	{ $('#networksEnabled tbody tr:eq(0) td:eq(0)').css(); }
+        if (data.includes("mmdvmhost:disabled") && <?php echo $config_radio['modes']['modeDmrEnable']; ?>)		{ $('#networksEnabled tbody tr:eq(0) td:eq(1)').css(); }
+        if (data.includes("ysfgateway:disabled") && <?php echo $config_radio['modes']['modeYSFEnable']; ?>)		{ $('#networksEnabled tbody tr:eq(1) td:eq(0)').css(); }
+	if (data.includes("p25gateway:disabled") && <?php echo $config_radio['modes']['modeP25Enable']; ?>)		{ $('#networksEnabled tbody tr:eq(1) td:eq(1)').css(); }
+	if (data.includes("ysf2dmr:disabled") && <?php echo $config_radio['modes']['modeYSF2DMREnable']; ?>)		{ $('#networksEnabled tbody tr:eq(2) td:eq(0)').css(); }
+	if (data.includes("nxdngateway:disabled") && <?php echo $config_radio['modes']['modeNXDNEnable']; ?>)		{ $('#networksEnabled tbody tr:eq(2) td:eq(1)').css(); }
+        // Modes Enabled (Starting)
+        if (data.includes("mmdvmhost:starting") && <?php echo $config_radio['modes']['modeDStarEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
+	if (data.includes("dstarrepeater:starting") && <?php if ($config_radio['software']['modemControlSoftware'] == 'dstarrepeater') { echo "1"; } else { echo "0"; } ?>)	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
+        if (data.includes("mmdvmhost:starting") && <?php echo $config_radio['modes']['modeDmrEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#ff9", "color":"#000"}); }
+        if (data.includes("mmdvmhost:starting") && <?php echo $config_radio['modes']['modeYSFEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
+	if (data.includes("mmdvmhost:starting") && <?php echo $config_radio['modes']['modeP25Enable']; ?>)		{ $('#modesEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#ff9", "color":"#000"}); }
+	if (data.includes("mmdvmhost:starting") && <?php echo $config_radio['modes']['modeYSF2DMREnable']; ?>)	{ $('#modesEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
+	if (data.includes("mmdvmhost:starting") && <?php echo $config_radio['modes']['modeNXDNEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#ff9", "color":"#000"}); }
+	// Network Status (Starting)
+	if (data.includes("ircddbgateway:starting") && <?php echo $config_radio['modes']['modeDStarEnable']; ?>)	{ $('#networksEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
+	if (data.includes("ircddbgateway:starting") && <?php if ($config_radio['software']['modemControlSoftware'] == 'dstarrepeater') { echo "1"; } else { echo "0"; } ?>)	{ $('#networksEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
+        if (data.includes("mmdvmhost:startingn") && <?php echo $config_radio['modes']['modeDmrEnable']; ?>)		{ $('#networksEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#ff9", "color":"#000"}); }
+        if (data.includes("ysfgateway:startingn") && <?php echo $config_radio['modes']['modeYSFEnable']; ?>)		{ $('#networksEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
+	if (data.includes("p25gateway:starting") && <?php echo $config_radio['modes']['modeP25Enable']; ?>)		{ $('#networksEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#ff9", "color":"#000"}); }
+	if (data.includes("ysf2dmr:starting") && <?php echo $config_radio['modes']['modeYSF2DMREnable']; ?>)		{ $('#networksEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
+	if (data.includes("nxdngateway:starting") && <?php echo $config_radio['modes']['modeNXDNEnable']; ?>)		{ $('#networksEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#ff9", "color":"#000"}); }
+        // Modes Enabled (ON)
         if (data.includes("mmdvmhost:on") && <?php echo $config_radio['modes']['modeDStarEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
 	if (data.includes("dstarrepeater:on") && <?php if ($config_radio['software']['modemControlSoftware'] == 'dstarrepeater') { echo "1"; } else { echo "0"; } ?>)	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
         if (data.includes("mmdvmhost:on") && <?php echo $config_radio['modes']['modeDmrEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
@@ -104,7 +136,7 @@
 	if (data.includes("mmdvmhost:on") && <?php echo $config_radio['modes']['modeP25Enable']; ?>)		{ $('#modesEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
 	if (data.includes("mmdvmhost:on") && <?php echo $config_radio['modes']['modeYSF2DMREnable']; ?>)	{ $('#modesEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
 	if (data.includes("mmdvmhost:on") && <?php echo $config_radio['modes']['modeNXDNEnable']; ?>)		{ $('#modesEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
-	// Network Status
+	// Network Status (ON)
 	if (data.includes("ircddbgateway:on") && <?php echo $config_radio['modes']['modeDStarEnable']; ?>)	{ $('#networksEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
 	if (data.includes("ircddbgateway:on") && <?php if ($config_radio['software']['modemControlSoftware'] == 'dstarrepeater') { echo "1"; } else { echo "0"; } ?>)	{ $('#networksEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#0b0", "color":"#000"}); }
         if (data.includes("mmdvmhost:on") && <?php echo $config_radio['modes']['modeDmrEnable']; ?>)		{ $('#networksEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#0b0", "color":"#000"}); }
