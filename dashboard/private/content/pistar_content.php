@@ -151,7 +151,7 @@ echo "  <div class=\"content\">\n";
         // $(document.getElementById("Links")).append("<tr><td>" + data + "</td></tr>")
       })
       socket.on("SERVICE_STATUS", function(data) {
-	$('#Status tbody tr').slice(12).remove();
+	$('#Status tbody tr').slice(11).remove();
         $('#Status tbody').prepend("<tr><td align=\"left\">" + data + "</td></tr>")
         // $(document.getElementById("Links")).append("<tr><td>" + data + "</td></tr>")
       })
