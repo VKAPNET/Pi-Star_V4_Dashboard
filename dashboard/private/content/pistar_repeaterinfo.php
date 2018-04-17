@@ -108,6 +108,18 @@
 	if (data.includes("p25gateway:disabled"))	{ $('#networksEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#606060", "color":"#b0b0b0"}); }
 	if (data.includes("ysf2dmr:disabled"))		{ $('#networksEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#606060", "color":"#b0b0b0"}); }
 	if (data.includes("nxdngateway:disabled"))	{ $('#networksEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#606060", "color":"#b0b0b0"}); }
+	// Modes Enabled (Failed)
+	if (data.includes("dstarrepeater:failed"))	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); }
+        if (data.includes("mmdvmhost:failed"))		{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#f33", "color":"#000"});
+        						  $('#modesEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); $('#modesEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#f33", "color":"#000"});
+							  $('#modesEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); $('#modesEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#f33", "color":"#000"}); }
+	// Network Status (Failed)
+	if (data.includes("ircddbgateway:failed"))	{ $('#networksEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); }
+        if (data.includes("mmdvmhost:failed"))		{ $('#networksEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#f33", "color":"#000"}); }
+        if (data.includes("ysfgateway:failed"))		{ $('#networksEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); }
+	if (data.includes("p25gateway:failed"))		{ $('#networksEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#f33", "color":"#000"}); }
+	if (data.includes("ysf2dmr:failed"))		{ $('#networksEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#f33", "color":"#000"}); }
+	if (data.includes("nxdngateway:failed"))	{ $('#networksEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#f33", "color":"#000"}); }
         // Modes Enabled (Starting)
 	if (data.includes("dstarrepeater:starting"))	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); }
         if (data.includes("mmdvmhost:starting"))	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#ff9", "color":"#000"}); $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#ff9", "color":"#000"});
