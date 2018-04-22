@@ -97,8 +97,7 @@
       // Modes Status
       socket.on("SERVICE_STATUS", function(data) {
         // Modes Enabled (Disabled)
-	if (data.includes("dstarrepeater:disabled"))	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#606060", "color":"#b0b0b0"}); }
-        if (data.includes("mmdvmhost:disabled"))	{ $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#606060", "color":"#b0b0b0"}); $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#606060", "color":"#b0b0b0"});
+	if (data.includes("dstarrepeater:disabled") && data.includes("mmdvmhost:disabled")) { $('#modesEnabled tbody tr:eq(0) td:eq(0)').css({"background-color":"#606060", "color":"#b0b0b0"}); $('#modesEnabled tbody tr:eq(0) td:eq(1)').css({"background-color":"#606060", "color":"#b0b0b0"});
         						  $('#modesEnabled tbody tr:eq(1) td:eq(0)').css({"background-color":"#606060", "color":"#b0b0b0"}); $('#modesEnabled tbody tr:eq(1) td:eq(1)').css({"background-color":"#606060", "color":"#b0b0b0"});
 							  $('#modesEnabled tbody tr:eq(2) td:eq(0)').css({"background-color":"#606060", "color":"#b0b0b0"}); $('#modesEnabled tbody tr:eq(2) td:eq(1)').css({"background-color":"#606060", "color":"#b0b0b0"}); }
 	// Network Status (Disabled)
